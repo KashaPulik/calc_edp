@@ -132,9 +132,19 @@ int main(int argc, char *argv[])
             printf(" + ");
         printf("%ld", ks[i]);
         if (n_edges - i - 1)
-            printf("p^%ld", n_edges - i - 1);
+        {
+            if (n_edges - i - 1 == 1)
+                printf("p");
+            else
+                printf("p^%ld", n_edges - i - 1);
+        }
         if (i)
-            printf("q^%ld", i);
+        {
+            if (i == 1)
+                printf("q");
+            else
+                printf("q^%ld", i);
+        }
         output_flag = 1;
     }
 
