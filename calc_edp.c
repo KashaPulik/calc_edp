@@ -31,7 +31,7 @@ int check_connectivity(size_t size, int graph[size][size], int visit_graph[size]
                 flag += check_connectivity(size, graph, visit_graph, i, m);
             }
         }
-    return flag;
+    return flag ? 1 : 0;
 }
 
 size_t count_pairs(size_t size, int graph[size][size])
