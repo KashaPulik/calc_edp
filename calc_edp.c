@@ -29,6 +29,8 @@ int check_connectivity(size_t size, int graph[size][size], int visit_graph[size]
             {
                 visit_graph[n][i] = 1;
                 flag += check_connectivity(size, graph, visit_graph, i, m);
+                if (flag)
+                    return 1;
             }
         }
     return flag ? 1 : 0;
@@ -128,8 +130,13 @@ int main(int argc, char *argv[])
             continue;
         if (i != 0 && ks[i] > 0 && output_flag != 0)
             printf(" + ");
-        printf("%ldp^%ldq^%ld", ks[i], n_edges - i - 1, i);
+        printf("%ld", ks[i]);
+        if (n_edges - i - 1)
+            printf("p^%ld", n_edges - i - 1);
+        if (i)
+            printf("q^%ld", i);
         output_flag = 1;
     }
+
     printf("\n");
 }
